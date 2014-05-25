@@ -9,27 +9,31 @@ var TEMPLATE_RE = /\{\{(.*?)\}\}/g;
 
 var compile = function (file) {
 	var html = fs.readFileSync(file, charset);
-	
-	html = html.replace(INCLUDE_RE, function ($1, blank, id, content) {
 
-		var dirname = path.dirname(file);
-		var target = path.resolve(dirname, id.split('/').join(path.sep));
+	if (INCLUDE_RE.test(html)) {
+		html = html.replace(INCLUDE_RE, function ($1, blank, id, content) {
 
-		
-		if (fs.existsSync(target)) {
-			content = fs.readFileSync(target, charset);
-		} else {
-			throw new Error('File not found: ' + target);
-		}
+			var dirname = path.dirname(file);
+			var target = path.resolve(dirname, id.split('/').join(path.sep));
 
-		return template(TEMPLATE, {
-			id: id,
-			blank: blank,
-			content: content
+			
+			if (fs.existsSync(target)) {
+				content = fs.readFileSync(target, charset);
+			} else {
+				throw new Error('File not found: ' + target);
+			}
+
+			return template(TEMPLATE, {
+				id: id,
+				blank: blank,
+				content: content
+			});
 		});
-	});
+		
+		fs.writeFileSync(file, html, charset);
+	}
 	
-	fs.writeFileSync(file, html, charset);
+
 };
 
 

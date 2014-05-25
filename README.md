@@ -1,4 +1,4 @@
-#	HTML 静态文件局部模板批量更新工具
+#	HTML 静态文件局部模板批量更新工具
 
 ![banner](./doc/banner.jpg)
 
@@ -32,11 +32,11 @@ iTag 是一个简单易用的 HTML 静态文件局部模板批量更新工具，
 	
 ##	安装工具
 
-###	安装 NodeJS
+一、安装 NodeJS
 
 iTag 采用 [NodeJS](http://nodejs.org) 开发，所以首先需要下载安装 [NodeJS](http://nodejs.org)
 
-###	安装 iTag
+二、安装 iTag
 
 在控制台运行：
 
