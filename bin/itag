@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var path = require('path');
+var itag = require('../src/itag.js');
+var EXTNAME_RE = /\.(html|htm)$/i;
+var args = process.argv.slice(2);
+
+var base = '.' + path.sep;
+
+if (args[0]) {
+	base = path.resolve(args[0]);
+}
+
+var walk = function (dir) {
+	var dirList = fs.readdirSync(dir);
+
+	dirList.forEach(function (item) {
+		var target = path.join(dir, item);
+		
+		if (fs.statSync(target).isDirectory()) {
+			walk(target);
+		} else if (EXTNAME_RE.test(target)) {
+			console.log(target.replace(base + path.sep, ''));
+			itag(target);
+		}
+	});
+};
+
+walk(base);

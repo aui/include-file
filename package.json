@@ -1,0 +1,20 @@
+{
+    "name": "itag",
+    "version": "0.0.1",
+    "description": "Template",
+    "readmeFilename": "README.md",
+    "homepage": "https://github.com/aui/itag",
+    "author": "aui",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/aui/itag.git"
+    },
+    "main": "./src/itag.js",
+    "bin": {
+        "itag": "./bin/itag"
+    },
+    "scripts": {
+        "test": "itag ./test/"
+    },
+    "license": "BSD"
+}
