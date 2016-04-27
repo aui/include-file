@@ -1,20 +1,20 @@
 {
-    "name": "itag",
-    "version": "0.0.2",
-    "description": "Template",
+    "name": "include-file",
+    "version": "0.0.1",
+    "description": "静态文件局部模板批量更新工具",
     "readmeFilename": "README.md",
-    "homepage": "https://github.com/aui/itag",
+    "homepage": "https://github.com/aui/include-file",
     "author": "aui",
     "repository": {
         "type": "git",
-        "url": "https://github.com/aui/itag.git"
+        "url": "https://github.com/aui/include-file.git"
     },
-    "main": "./src/itag.js",
+    "main": "./src/include-file.js",
     "bin": {
-        "itag": "./bin/itag"
+        "include-file": "./bin/include-file"
     },
     "scripts": {
-        "test": "itag ./test/"
+        "test": "include-file ./test/"
     },
-    "license": "BSD"
+    "license": "MIT"
 }
